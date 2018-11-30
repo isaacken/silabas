@@ -1,0 +1,27 @@
+body {
+  font-family: 'Amatic SC', cursive;
+  background: url("https://images.pexels.com/photos/278881/pexels-photo-278881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+
+}
+
+#wrapper {
+  background-color: rgba(255,255,255,.85);
+  box-shadow: 2px 2px 5px rgba(0,0,0,.4);
+}
+
+button, input {
+  font-family: Arial;
+}
+
+h1 {
+  font-size: 65pt;
+}
+
+h2 {
+  font-size: 42pt;
+}
+
+h4 {
+  font-size: 25pt;
+}
