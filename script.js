@@ -13,7 +13,7 @@ var palavras = [
   ['brin','que','do'],
   ['mo','chi','la'],
   ['pa','ra','le','le','pí','pe','do'],
-  ['in','cons','ti','tu','cio','na','lis','ci','ma','men','te'],
+  ['in','cons','ti','tu','cio','na','lis','si','ma','men','te'],
   ['pneu','mo','ul','tra','mi','cros','co','pi','cos','si','li','co','vul','ca','no','co','ni','ó','ti','co']
 ];
 
@@ -26,7 +26,7 @@ var tentativas = 0;
 
 function geraPalavra() {
   if (vidas > 0) {
-	  if (palavrasTentadas.length < palavras.length || palavrasTentadas.length <= 10) {
+	  if (palavrasTentadas.length < palavras.length && palavrasTentadas.length <= 10) {
 		let index;
 		do {
 		  index = Math.floor(Math.random()*palavras.length);
@@ -36,7 +36,9 @@ function geraPalavra() {
 		palavraAtual = palavras[indexAtual];
 		palavrasTentadas.push(indexAtual);
 	  } else {
-		alert("Parabéns! Você acertou " + pontuacao + " de " + palavras.length + " palavras.");
+		tentativas--;
+		pontuacao--;
+		alert("Parabéns! Você acertou " + pontuacao + " de " + tentativas + " palavras.");
 		location.href="index.html";
 	  }
   } else {
@@ -65,7 +67,15 @@ $("#responder").on("click", function() {
     alert("Resposta correta!");
   } else {
     vidas--;
-    alert("Resposta errada :(");
+    let aux = "";
+    for (i = 0; i < palavraAtual.length; i++) {
+	if (i==0) {
+		aux = palavraAtual[i];
+	} else {
+		aux = aux + "-" + palavraAtual[i];
+	}
+    }
+    alert("Resposta errada :(\nA separação correta é: "+aux);
   }
   
   $("#vidas").html(vidas);
